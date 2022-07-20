@@ -7,12 +7,16 @@
 const app = require('../app');
 const debug = require('debug')('server:server');
 const http = require('http');
+const dotenv = require('dotenv')
+
+dotenv.config()
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
 
 /**
@@ -87,4 +91,6 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+
 }
