@@ -1,0 +1,14 @@
+.background {
+  display: block;
+
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  position: fixed;
+
+  /* background-color: black; */
+  background: url('../../assets/images/testone.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Noto Sans KR', sans-serif;
+
+}

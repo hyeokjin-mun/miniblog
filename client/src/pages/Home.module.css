@@ -1,0 +1,22 @@
+.section {
+  display: flex;
+  font-size: 4rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courgette";
+  margin-top: 4rem;
+  color: rgb(41, 39, 39);
+  
+}
+
+.section h1 {
+  font-size: 7rem;
+  
+}
+
+.section div {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+
+}
