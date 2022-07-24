@@ -8,12 +8,12 @@ import { ToastContainer, Toast } from "react-toastify";
 import axios from "axios";
 
 export default function Register() {
-  const [values, setValues] = useState({
+
+
+  const [data, setData] = useState({
     email: "",
     password: "",
   });
-
-  const [data, setData] = useState("");
 
   const storedDataHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });

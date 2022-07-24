@@ -11,7 +11,7 @@ const authRoutes = require("./src/v1/routes/authRoutes");
 
 const app = express();
 
-app.use(cors());
+app.use(cors())
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +19,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 /*Rotuer*/
-
-app.use("/", authRoutes);
+app.use("/api", authRoutes);
 
 module.exports = app;
