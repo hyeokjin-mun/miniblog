@@ -3,6 +3,9 @@ import Background from "./components/layout/Background";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import "react-toastify/dist/ReactToastify.css";
+
+
 
 function App() {
 

@@ -4,7 +4,7 @@ import styles from "../components/UI/LoginSignup.module.css";
 import "@fontsource/courgette";
 import "@fontsource/noto-sans-kr";
 import { Link } from "react-router-dom";
-import { ToastContainer, Toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 export default function Register() {
@@ -20,21 +20,19 @@ export default function Register() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const userData = await axios.post(
-      "/api/register",
-      {
-        ...data,
-      },
-      { withCredentials: true }
-    );
+    const userData = await axios
+      .post(
+        "/api/register",
+        {
+          ...data,
+        },
+        { withCredentials: true }
+      )
+      .catch((error) => {
+        const errorobj = error.response.data.errors
+        errorobj.map((obj) => toast.error(obj.msg));
 
-    console.log(userData.data);
-
-    if (userData) {
-      if (userData.errors) {
-      } else {
-      }
-    }
+      });
   };
 
   return (
@@ -68,8 +66,18 @@ export default function Register() {
             </Link>
           </span>
         </form>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        ></ToastContainer>
       </Container>
-      <ToastContainer></ToastContainer>
     </React.Fragment>
   );
 }
