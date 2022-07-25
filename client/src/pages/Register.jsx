@@ -8,8 +8,6 @@ import { ToastContainer, Toast } from "react-toastify";
 import axios from "axios";
 
 export default function Register() {
-
-
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -22,16 +20,21 @@ export default function Register() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-     const {sendData} = await axios.post('/api/register', {
+    const userData = await axios.post(
+      "/api/register",
+      {
+        ...data,
+      },
+      { withCredentials: true }
+    );
 
-      ...data
+    console.log(userData.data);
 
-    })
-
-
-    console.log(sendData);
-
-
+    if (userData) {
+      if (userData.errors) {
+      } else {
+      }
+    }
   };
 
   return (
